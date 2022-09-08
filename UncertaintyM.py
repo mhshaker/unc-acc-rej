@@ -14,6 +14,21 @@ from scipy.stats import entropy
 import warnings
 random.seed(1)
 
+################################################################################################################################################# Geometric measure
+
+def uncertainty_GM(probs, likelyhoods, epsilon=2, log=False):
+	s_max = maxent18(probs, likelyhoods, epsilon) # max entropy of credal set - based on paper: Quantification of Credal Uncertainty in Machine Learning: A Critical Analysis and Empirical Comparison
+	s_min = minent19(probs, likelyhoods, epsilon) # min entropy of credal set
+
+
+	# Please add your code here
+
+	# total = ...
+	# e = ...
+	# a = ...
+
+	return total, e, a 
+
 
 ################################################################################################################################################# ent
 

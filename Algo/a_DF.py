@@ -110,7 +110,11 @@ def DF_run(x_train, x_test, y_train, y_test, pram, unc_method, seed, predict=Tru
         #     total_uncertainty, epistemic_uncertainty, aleatoric_uncertainty = unc.uncertainty_set14_convex(porb_matrix, sampling_size=pram["credal_size"])
         # elif "levi3.ent.conv" == unc_method:
         #     total_uncertainty, epistemic_uncertainty, aleatoric_uncertainty = unc.uncertainty_set15_convex(porb_matrix, sampling_size=pram["credal_size"])
-    
+    elif "uncGM" == unc_method:
+        likelyhoods = get_likelyhood(model, x_train, y_train, pram["n_estimators"], pram["laplace_smoothing"])
+        porb_matrix = get_prob(model, x_test, pram["n_estimators"], pram["laplace_smoothing"])
+        total_uncertainty, epistemic_uncertainty, aleatoric_uncertainty = unc.uncertainty_GM_epsilon(porb_matrix, likelyhoods, pram["epsilon"])
+
     elif "levidir" in unc_method:
         credal_prob_matrix = []
         # credal_likelihood_matrix = []

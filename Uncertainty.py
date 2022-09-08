@@ -67,8 +67,8 @@ if __name__ == '__main__':
     seed   = 1
     runs = 1
     data_name = "Jdata/parkinsons"
-    algo = "DF"
-    unc_method = "set19"
+    algo = "DF" # random forest model
+    unc_method = "uncGM" # already set to run the new Geometric measure
     prams = {
     # 'criterion'        : "entropy",
     'max_depth'        : 10,
